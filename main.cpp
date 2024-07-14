@@ -38,6 +38,32 @@ void tampilkanBuku() {
   }
 }
 
+// fungsi untuk mencari buku
+void cariBuku(const string &judul) {
+  // variabel untuk menunujukan buku ditemukan atau tidak
+  bool ditemukan = false;
+  // looping semua element di dalam vektor koleksi buku dan mencari berdasarkan
+  // judul buku
+  for (const auto &Buku : koleksiBuku) {
+    // kondisi jika buku ditemukan akan ditampilkan di terminal
+    if (Buku.judul == judul) {
+      cout << "\n-----------------------\n";
+      cout << "Buku ditemukan:\n";
+      cout << "Judul  : " << Buku.judul << "\n";
+      cout << "Penulis: " << Buku.penulis << "\n";
+      cout << "Tahun  : " << Buku.tahun << "\n";
+      cout << "-----------------------\n";
+
+      ditemukan = true;
+      break;
+    }
+  }
+  // kondisi jika buku tidak ditemukan
+  if (!ditemukan) {
+    cout << "Buku dengan judul \"" << judul << "\" tidak ditemukan.\n";
+  }
+}
+
 int main() {
   // variabel untuk menyimpan opsi pilihan user dan hasil input dari user
   int opsi, tahun;
@@ -48,7 +74,8 @@ int main() {
     cout << "\nProgram Pengelola Buku Perpustakaan\n";
     cout << "1. Tambah Buku\n";
     cout << "2. Tampilkan Semua Buku\n";
-    cout << "3. Keluar\n";
+    cout << "3. Cari Buku Sesuai Judul\n";
+    cout << "4. Keluar\n";
     cout << "Pilih Opsi (1-5) : ";
     cin >> opsi; // mengambil input opsi user
 
@@ -67,6 +94,12 @@ int main() {
       tampilkanBuku();
       break;
     case 3:
+      cout << "Masukkan judul buku yang dicari: ";
+      cin.ignore();
+      getline(cin, judul);
+      cariBuku(judul);
+      break;
+    case 4:
       return EXIT_SUCCESS;
     }
   }
