@@ -64,20 +64,20 @@ void cariBuku(const string &judul) {
   }
 }
 
-//fungsi untuk menghapus buku
-void hapusBuku(const string& judul) {
-  //looping melalui setiap buku dalam "koleksiBuku" menggunakan iterator
-    for (auto it = koleksiBuku.begin(); it != koleksiBuku.end(); ++it) {
-      //mengecek apakah judul buku cocok dengan judul yang akan dihapus
-        if (it->judul == judul) {
-          //menghapus buku dari "koleksiBuku"
-            koleksiBuku.erase(it);
-            cout << "Buku berhasil dihapus.\n";
-            return;
-        }
+// fungsi untuk menghapus buku
+void hapusBuku(const string &judul) {
+  // looping melalui setiap buku dalam "koleksiBuku" menggunakan iterator
+  for (auto it = koleksiBuku.begin(); it != koleksiBuku.end(); ++it) {
+    // mengecek apakah judul buku cocok dengan judul yang akan dihapus
+    if (it->judul == judul) {
+      // menghapus buku dari "koleksiBuku"
+      koleksiBuku.erase(it);
+      cout << "Buku berhasil dihapus.\n";
+      return;
     }
-    //jika tidak ditemukan, menampilkan pesan bahwa buku tidak ditemukan
-    cout << "Buku dengan judul \"" << judul << "\" tidak ditemukan.\n";
+  }
+  // jika tidak ditemukan, menampilkan pesan bahwa buku tidak ditemukan
+  cout << "Buku dengan judul \"" << judul << "\" tidak ditemukan.\n";
 }
 
 int main() {
@@ -91,12 +91,12 @@ int main() {
     cout << "1. Tambah Buku\n";
     cout << "2. Tampilkan Semua Buku\n";
     cout << "3. Cari Buku Sesuai Judul\n";
-    cout << "4. Hapus Buku\n"
+    cout << "4. Hapus Buku\n";
     cout << "5. Keluar\n";
     cout << "Pilih Opsi (1-5) : ";
     cin >> opsi; // mengambil input opsi user
 
-    //menggunakan "switch" untuk memproses pilihan user
+    // menggunakan "switch" untuk memproses pilihan user
     switch (opsi) {
     case 1:
       cout << "Masukan Judul Buku :";
@@ -121,7 +121,7 @@ int main() {
       cout << "Masukan judul buku yang ingin dihapus: ";
       cin.ignore();
       getline(cin, judul);
-      hapusBuku(judul)
+      hapusBuku(judul);
       break;
     case 5:
       return EXIT_SUCCESS;
