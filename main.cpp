@@ -118,11 +118,11 @@ int main() {
       cariBuku(judul);
       break;
     case 4:
-    cout << "Masukan judul buku yang ingin dihapus: ";
-    cin.ignore();
-    getline(cin, judul);
-    hapusBuku(judul)
-    break;
+      cout << "Masukan judul buku yang ingin dihapus: ";
+      cin.ignore();
+      getline(cin, judul);
+      hapusBuku(judul)
+      break;
     case 5:
       return EXIT_SUCCESS;
     }
